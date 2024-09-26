@@ -2,10 +2,18 @@
   text-align: center;
 }
 
+.Table{
+  background-color: white;
+  margin: '10px';
+  border-radius: '5px';
+  cursor: 'pointer';
+}
+
 .LoginDiv{
   border-radius: 20px;
   color: black;
   background-color: #F2F0EF;
+  text-align: center;
 }
 
 .App-logo {
@@ -20,7 +28,7 @@
 }
 
 .App-header {
-  background-image: url('C:\Users\Ivan Jozina\Desktop\praksa\WebAppProject\Frontend\reactintroduction\src\backgroundPhoto.jpg');
+  background-image: url('C:\Users\Ivan Jozina\Desktop\praksa\WebAppProjectNew\Frontend\reactintroduction\src\backgroundPhoto.jpg');
   background-size: cover; 
   background-position: center;
   background-attachment: fixed; 

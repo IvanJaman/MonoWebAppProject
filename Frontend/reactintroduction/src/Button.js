@@ -13,7 +13,7 @@ export function Button({ handleSubmit }) {
   };
 
   return (
-    <button style={buttonStyle} onClick={handleSubmit}>
+    <button style={buttonStyle} onClick={handleSubmit} type="submit">
       Submit
     </button>
   );

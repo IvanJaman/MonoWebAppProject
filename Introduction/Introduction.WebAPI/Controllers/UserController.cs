@@ -34,7 +34,7 @@ namespace Introduction.WebAPI.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("DeleteUser/{id}")]
         public async Task<ActionResult> DeleteAsync(Guid id)
         {
             try
@@ -50,7 +50,7 @@ namespace Introduction.WebAPI.Controllers
             }
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("UpdateUser/{id}")]
         public async Task<ActionResult> PutAsync(Guid id, User user)
         {
             try

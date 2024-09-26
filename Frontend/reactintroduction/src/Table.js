@@ -1,18 +1,11 @@
 import React from 'react';
+import './App.css';
 
 export function Table({ data, onEdit, onDelete }) {
-  const tableStyle = {
-    backgroundColor: 'white',
-  }
-
-  const buttonStyle = {
-    margin: '10px',
-    borderRadius: '5px',
-    cursor: 'pointer',
-  };
-
   return (
-    <table style={tableStyle} border="1">
+    <form>
+    <div className='Table'>
+    <table border="1">
       <thead>
         <tr>
           <th>Id</th>
@@ -28,10 +21,10 @@ export function Table({ data, onEdit, onDelete }) {
             <td>{row.firstName}</td>
             <td>{row.lastName}</td>
             <td>
-              <button style={buttonStyle} onClick={() => onEdit(row.id, row.firstName, row.lastName)}>
+              <button onClick={() => onEdit(row.id, row.firstName, row.lastName)}>
                 Edit
               </button>
-              <button style={buttonStyle} onClick={() => onDelete(row.id)}>
+              <button onClick={() => onDelete(row.id)}>
                 Delete
               </button>
             </td>
@@ -39,5 +32,7 @@ export function Table({ data, onEdit, onDelete }) {
         ))}
       </tbody>
     </table>
+    </div>
+    </form>
   );
 }
