@@ -62,7 +62,6 @@ function App() {
 
   async function handleDelete (id) {
     try{
-      debugger;
     const response=await axios.delete(`https://localhost:7267/User/DeleteUser`,{
       params: { id }});
       const test= response.data;
