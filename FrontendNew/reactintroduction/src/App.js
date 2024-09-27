@@ -6,7 +6,7 @@ import { useState, useEffect  } from 'react';
 import axios from 'axios';
 
 function App() {
-  const [user, setUser] = useState({firstName: '', lastName: '' });
+  const [user, setUser] = useState({firstName: '', lastName: '' , sex: '', dateOfBirth: ''});
   const [users, setUsers] = useState([]);
   const [editId, setEditId] = useState(null);
 
@@ -38,7 +38,7 @@ function App() {
             );
             setUsers(updatedTable);
             setEditId(null);
-            setUser({ firstName: '', lastName: '' });
+            setUser({ firstName: '', lastName: '', sex: '', dateOfBirth: ''});
             console.log('User successfully updated.');
           })
           .catch(error => {
@@ -51,7 +51,7 @@ function App() {
           const newData = response.data; 
           const updatedTable = [...users, newData];
           setUsers(updatedTable);
-          setUser({ firstName: '', lastName: '' });
+          setUser({ firstName: '', lastName: '', sex: '', dateOfBirth: '' });
           console.log('User successfully added.');
         })
         .catch(error => {
@@ -61,15 +61,13 @@ function App() {
     }
   };
 
-  const handleEdit = (id, firstName, lastName) => {
-    debugger;
+  const handleEdit = (id, firstName, lastName, sex, dateOfBirth) => {
     setEditId(id);
-    setUser({ firstName, lastName }); 
+    setUser({ firstName, lastName, sex, dateOfBirth}); 
   };
 
   function handleDelete(id) {
     try {
-      debugger;
       axios
         .delete(`https://localhost:7267/User/DeleteUser/${id}`)
         .then((response) => {
@@ -90,6 +88,8 @@ function App() {
             <h2>{editId ? 'Edit user info:' : 'Enter user info:'}</h2>
             <InputBar inputValue={user.firstName} setInputValue={(value) => setUser({ ...user, firstName: value })} placeholder="First Name" />
             <InputBar inputValue={user.lastName} setInputValue={(value)=> setUser({ ...user, lastName: value })} placeholder="Last Name" />
+            <InputBar inputValue={user.sex} setInputValue={(value)=> setUser({ ...user, sex: value })} placeholder="Sex" />
+            <InputBar inputValue={user.dateOfBirth} setInputValue={(value)=> setUser({ ...user, dateOfBirth: value })} placeholder="Date of Birth" />
             <Button />
             <Table data={users} onEdit={handleEdit} onDelete={handleDelete}/>
           </div>
